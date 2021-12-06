@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    >
+
+    <ImageView
+        android:id="@+id/productImageIv"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_launcher_foreground"
+        />
+
+    <ImageView
+        android:id="@+id/heartImg"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="17dp"
+        android:elevation="2dp"
+        app:layout_constraintEnd_toEndOf="@+id/productImageIv"
+        app:layout_constraintTop_toTopOf="@+id/productImageIv"
+        tools:src="@drawable/ic_heart_empty"
+        />
+
+    <TextView
+        android:id="@+id/brandNameTv"
+        style="@style/Theme.Notino.BrandName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/productImageIv"
+        app:layout_constraintStart_toStartOf="@+id/productImageIv"
+        app:layout_constraintTop_toBottomOf="@+id/productImageIv"
+        tools:text="Brand Name"
+        />
+
+    <TextView
+        android:id="@+id/productNameTv"
+        style="@style/Theme.Notino.ProductName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/productImageIv"
+        app:layout_constraintStart_toStartOf="@+id/productImageIv"
+        app:layout_constraintTop_toBottomOf="@+id/brandNameTv"
+        tools:text="Product Name"
+        />
+
+    <TextView
+        android:id="@+id/productDescTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:maxLines="3"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/productImageIv"
+        app:layout_constraintStart_toStartOf="@+id/productImageIv"
+        app:layout_constraintTop_toBottomOf="@+id/productNameTv"
+        tools:text="Product description"
+        />
+
+    <RatingBar
+        android:id="@+id/simpleRatingBar"
+        style="@style/customRatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:isIndicator="true"
+        android:max="5"
+        android:numStars="5"
+        android:paddingTop="10dp"
+        android:paddingBottom="5dp"
+        app:layout_constraintEnd_toEndOf="@+id/productImageIv"
+        app:layout_constraintStart_toStartOf="@+id/productImageIv"
+        app:layout_constraintTop_toBottomOf="@+id/productDescTv"
+        />
+
+    <TextView
+        android:id="@+id/priceTv"
+        style="@style/Theme.Notino.Price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        app:layout_constraintEnd_toEndOf="@+id/productImageIv"
+        app:layout_constraintStart_toStartOf="@+id/productImageIv"
+        app:layout_constraintTop_toBottomOf="@+id/simpleRatingBar"
+        tools:text="Price"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/cartBtn"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/cart"
+        app:layout_constraintEnd_toEndOf="@+id/productImageIv"
+        app:layout_constraintStart_toStartOf="@+id/productImageIv"
+        app:layout_constraintTop_toBottomOf="@+id/priceTv"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
