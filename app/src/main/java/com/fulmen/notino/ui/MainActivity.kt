@@ -1,5 +1,7 @@
 package com.fulmen.notino.ui
 
+import android.content.Context
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
@@ -28,6 +30,13 @@ class MainActivity: AppCompatActivity() {
         recycler.layoutManager = GridLayoutManager(this, 2)
         recycler.adapter = adapter
 
+        if (isOnline()){
+            notinoViewModel.getNotinoProducts()
+        } else {
+            progress.visibility = View.GONE
+            recycler.visibility = View.VISIBLE
+            Toast.makeText(this, "No internet available", Toast.LENGTH_LONG).show()
+        }
 
 
         notinoViewModel.res.observe(this,  {
@@ -56,5 +65,9 @@ class MainActivity: AppCompatActivity() {
         })
     }
 
-
+    private fun isOnline(): Boolean{
+        val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val netInfo = cm.activeNetworkInfo
+        return netInfo != null && netInfo.isConnected
+    }
 }

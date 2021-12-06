@@ -21,10 +21,9 @@ class NotinoViewModel @Inject constructor(
         get() = _res
 
     init {
-        getNotinoProducts()
     }
 
-    private fun getNotinoProducts() = viewModelScope.launch {
+    fun getNotinoProducts() = viewModelScope.launch {
         _res.postValue(Resource.loading(null))
         mainRepository.getNotinoData().let {
             if (it.isSuccessful){

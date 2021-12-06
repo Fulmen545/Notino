@@ -70,6 +70,7 @@ class ProductAdapter(context: Context): RecyclerView.Adapter<ProductAdapter.Prod
                 ratingBar.visibility = View.GONE
             } else {
                 ratingBar.rating = item.reviewSummary.score.toFloat()
+                ratingBar.visibility = View.VISIBLE
             }
             Glide.with(context)
                 .load(IMG_PREFIX + item.imageUrl)
